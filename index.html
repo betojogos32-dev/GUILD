@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO Guild — Black Desert Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* 🔒 trava scroll */
+      font-family: Inter, Arial, sans-serif;
+      color: #f1f5f9;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(5,8,18,0.70), rgba(5,8,18,0.80)),
+        url("./bg.png") center / cover no-repeat fixed;
+    }
+
+    .hero {
+      height: 100vh;              /* ocupa a tela toda */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .brand {
+      font-family: Cinzel, serif;
+      letter-spacing: 4px;
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 16px;
+      opacity: .9;
+    }
+
+    .title {
+      font-family: Cinzel, serif;
+      font-size: clamp(28px, 5vw, 52px);
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      width: 140px;
+      height: 2px;
+      background: rgba(255,255,255,0.5);
+      margin: 16px auto 14px;
+      position: relative;
+    }
+
+    .divider::after {
+      content: "◆ ◆ ◆";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .features {
+      list-style: none;
+      max-width: 420px;
+      margin: 0 auto 22px;
+      text-align: left;
+      display: grid;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .features li::before {
+      content: "✓ ";
+      font-weight: bold;
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform .15s ease, filter .15s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .btn.discord {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+    }
+
+    .btn.staff {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+    }
+
+    footer {
+      font-size: 12px;
+      color: #cbd5f5;
+      opacity: .85;
+    }
+
+    /* 🎵 botão da música */
+    #music-btn {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="brand">— EGO GUILD —</div>
+
+      <h1 class="title">Recrutamento no<br>Black Desert Online</h1>
+
+      <div class="divider"></div>
+
+      <p class="subtitle">Junte-se a nós e venha desbravar o mundo de BDO!</p>
+
+      <ul class="features">
+        <li>Conteúdo PvE</li>
+        <li>Bosses semanais — Sexta às 23h BRT</li>
+        <li>PT e Grind</li>
+        <li>Ajuda para Novatos</li>
+      </ul>
+
+      <div class="cta">
+        <a href="https://discord.gg/qsPGaE5uXW" class="btn discord">Entrar no Discord</a>
+        <a href="staff.html" class="btn staff">Conheça a Staff</a>
+      </div>
+
+      <footer>© 2025 EGO Guild | Black Desert Online</footer>
+
+    </div>
+  </section>
+
+  <!-- 🎵 Música -->
+  <audio id="bg-music" loop>
+    <source src="BOM.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="music-btn" onclick="toggleMusic()">▶️</button>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸️";
+      } else {
+        music.pause();
+        btn.textContent = "▶️";
+      }
+    }
+  </script>
+
+</body>
+</html>
